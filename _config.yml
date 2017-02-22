@@ -1,10 +1,10 @@
 # Site settings
-title:       The BAP Blog
-# email:       dbrumley@cmu.edu
-author:      David Brumley
-description: "The Binary Analysis Platform Blog"
+title:       The twelveand0 Blog
+# email:       
+author:      bingchang
+description: "The twelveand0's Blog"
 baseurl:     ""
-url:         "http://binaryanalysisplatform.github.io"
+url:         "http://twelveand0.github.io"
 
 # Google analytics
 google_analytics:
