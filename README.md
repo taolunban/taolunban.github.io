@@ -1,1 +1,1 @@
-This is the [Binary Analysis Blog](http://binaryanalysisplatform.github.io) website.
+This is twelveand0's (http://twelveand0.github.io) website.
