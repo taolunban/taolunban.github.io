@@ -26,7 +26,7 @@ flattr_button:
 
 # Build settings
 #markdown:     kramdown #redcarpet
-permalink:    pretty
+#permalink:    pretty
 paginate:     3
 sass:
   compressed: true
