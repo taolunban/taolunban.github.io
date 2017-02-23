@@ -25,7 +25,7 @@ paypal_url:
 flattr_button:
 
 # Build settings
-markdown:      redcarpet#kramdown
+markdown:     kramdown #redcarpet
 permalink:    pretty
 paginate:     3
 sass:
