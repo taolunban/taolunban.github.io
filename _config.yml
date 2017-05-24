@@ -1,10 +1,10 @@
 # Site settings
-title:       twelveand0's Blog
+title:       G1-2讨论班 Blog
 # email:       
 author:      bingchang
-description: "The twelveand0's Blog"
+description: "The G1-2讨论班 Blog"
 baseurl:     ""
-url:         "http://twelveand0.github.io"
+url:         "http://taolunban.github.io"
 
 # Google analytics
 google_analytics:
