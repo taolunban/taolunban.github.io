@@ -28,7 +28,7 @@ PDF分类器：基于PDF文本结构的2个State of the Art分类器：PDFrate�
 * 1 已知特征工作在哪个级别（针对的2个分类器都是基于PDF文本结构的）；
 * 2 了解模型输出的恶意性评分的含义。  
 
-![](img_url)
+![](https://github.com/taolunban/taolunban.github.io/blob/master/assets/AECworkflow.png)
 ### 做法  
 
 变异PDF的body部分：PDF的body是树状的，便于进行变异。通过删除恶意文件body中的某个object、从良性文件中选取一个object插入恶意文件中和从良性文件中选取一个object替换恶意文件中的某object这3个操作随机地修改恶意文件。  
