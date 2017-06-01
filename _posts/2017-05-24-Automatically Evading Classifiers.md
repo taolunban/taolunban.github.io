@@ -30,7 +30,7 @@ PDF分类器：基于PDF文本结构的2个State of the Art分类器：PDFrate�
 
 
 ### 做法  
-![](https://github.com/taolunban/taolunban.github.io/blob/master/assets/AECworkflow.png)
+![](../assets/AECworkflow.png)
 #### 变异
 变异PDF的body部分：PDF的body是树状的，便于进行修改。通过删除恶意文件body中的某个object、从良性文件中选取一个object插入恶意文件中和从良性文件中选取一个object替换恶意文件中的某object这3个操作随机地修改恶意文件。  
 
