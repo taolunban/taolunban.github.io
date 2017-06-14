@@ -20,14 +20,14 @@ APISAN设计的关键思想是通过考虑语义约束，从四个不同的角�
 通过分析源代码中API的不同使用方式，APISAN能够自动推测出语义正确性，即“语义信度”。
 下图是APISAN找到的OpenSSL1.1.0-pre3-dev中的一个内存泄漏漏洞。
 
-![](taolunban.github.io/assets/APISAN-framework.png)
+![APISAN-running-example](taolunban.github.io/assets/APISAN-running-example.png)
 Line3为某公钥分配了内存单元gctx，随后被第四行的密钥生成操作EVP_PKEY_keygen_init()初始化。
 但是若密钥初始化失败时，已分配的内存单元即gctx应该被EVP_PKEY_CTX_free()释放，否则导致内存泄漏发生。APISAN首先从该API在其他位置代码的使用模式中推测出语义正确的使用方式，然后提取出一个可检查的规则，即语义信度。这个新发现的漏洞已经被报告并在mainstream中被修复。
 APISAN能够从右侧的代码数据库学习出正确的API使用模式，发现左侧代码中的漏洞。依据的原则是“主流的使用模式即为正确的使用模式”。
 
 ##Framework
 APISAN的设计框架如下图所示。
-![](../assets/APISAN-framework.png)
+![APISAN-framework](../assets/APISAN-framework.png)
 首先基于已有的程序源码利用符号执行技术建立符号上下文，创建符号轨迹(traces)的数据库。然后，APISAN从轨迹数据库中通过4个维度（即API之间的因果关系、API参数间的语义关系、API的返回值和API使用时隐含的前置后置条件）推测出正确的API使用模式，即“语义信度”。推测出的“语义信度”被用于发现和排序出高风险的API误用位置并报告为漏洞。
 ###建立符号上下文
 APISAN执行符号执行来构建符号上下文，为每个函数调用捕获丰富的语义信息。 
@@ -56,7 +56,7 @@ API语义可能意味着一定的前后条件。例如，仅当对等证书存�
 ###语义信度排序
 在收集上述API使用模式之后，APISAN在每个上下文下统计地推断出每个API函数的主流使用模式。
 该计算在下图中详细描述。由于方法本质上是概率性的，所以存在误报。APISAN按照比例降序排列，优先考虑最有可能的错误。
-![](../assets/APISAN-ranking.png)
+![APISAN-ranking](../assets/APISAN-ranking.png)
 
 ##APISAN实现和评估
 共约9K行代码（LoC），如下表1所示
