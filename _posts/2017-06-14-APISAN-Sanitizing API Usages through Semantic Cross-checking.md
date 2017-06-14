@@ -58,9 +58,10 @@ API语义可能意味着一定的前后条件。例如，仅当对等证书存�
 ![APISAN-ranking](../assets/APISAN-ranking.png)
 
 ## APISAN实现和评估
-共约9K行代码（LoC），如下表1所示
-基于Clang 3.6用于生成符号执行轨迹的C / C ++代码： 6K LoC
-用于实现检查器和库的Python代码：3K LoC
+共约9K行代码（LoC）。
+- 基于Clang 3.6用于生成符号执行轨迹的C / C ++代码： 6K LoC
+- 用于实现检查器和库的Python代码：3K LoC
+
 经验性地选择了0.8作为阈值来决定是否将API使用模式标记为主流模式。
 
 APISAN应用于
