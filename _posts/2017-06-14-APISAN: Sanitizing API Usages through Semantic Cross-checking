@@ -19,7 +19,8 @@ APISAN设计的关键思想是通过考虑语义约束，从四个不同的角�
 ##Introduction
 通过分析源代码中API的不同使用方式，APISAN能够自动推测出语义正确性，即“语义信度”。
 下图是APISAN找到的OpenSSL1.1.0-pre3-dev中的一个内存泄漏漏洞。
-![](../assets/APISAN-running-example.png)
+
+![](taolunban.github.io/assets/APISAN-framework.png)
 Line3为某公钥分配了内存单元gctx，随后被第四行的密钥生成操作EVP_PKEY_keygen_init()初始化。
 但是若密钥初始化失败时，已分配的内存单元即gctx应该被EVP_PKEY_CTX_free()释放，否则导致内存泄漏发生。APISAN首先从该API在其他位置代码的使用模式中推测出语义正确的使用方式，然后提取出一个可检查的规则，即语义信度。这个新发现的漏洞已经被报告并在mainstream中被修复。
 APISAN能够从右侧的代码数据库学习出正确的API使用模式，发现左侧代码中的漏洞。依据的原则是“主流的使用模式即为正确的使用模式”。
