@@ -1,0 +1,18 @@
+---
+layout: post
+permalink: 2017-06-14-APISAN: Sanitizing API Usages through Semantic Cross-checking
+title: APISAN: Sanitizing API Usages through Semantic Cross-checking
+---
+【发表会议刊物】USENIX Security Symposium 2016
+【作者信息】
+Insu Yun, Changwoo Min, Xujie Si, Yeongjin Jang, Taesoo Kim, and Mayur Naik,
+Georgia Institute of Technology
+
+##Abstract
+
+API滥用是一个众所周知的错误来源。其中一些（例如，SSL API的错误使用以及内存分配大小的整数）可能会导致严重的安全漏洞（例如，man-in-the-middle攻击和特权升级）。而且，大型，复杂和快速发展的现代API容易出错。然而，现有的帮助编写错误的技术需要开发人员（例如提供指定或模型）的手动工作，或者不能扩展到包含数百万行代码的大型真实世界软件。
+本文提出了APISAN，可以自动化地从源代码中自动推断出正确的API使用模式的工具，而无需人工干预。 
+APISAN设计的关键思想是通过考虑语义约束，从四个不同的角度方面，即API之间的因果关系、API参数间的语义关系、API的返回值和API使用时隐含的前置后置条件四方面，
+来提取潜在正确的使用模式。 APISAN专门用于检查具有安全隐患的各种属性。作者将APISAN应用于9200万行代码，包括Linux内核和OpenSSL，发现76个以前未知的错误，并提供了所有错误的补丁。
+##Introduction
+##Background
