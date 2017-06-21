@@ -1,7 +1,7 @@
 ---
 layout: post
-permalink: 2017-06-21-Skyfire: Data-Driven Seed Generation for Fuzzing
-title: Skyfire: Data-Driven Seed Generation for Fuzzing
+permalink: 2017-06-21-Skyfire- Data-Driven Seed Generation for Fuzzing
+title: Skyfire- Data-Driven Seed Generation for Fuzzing
 ---
 
 ## 发表会议
