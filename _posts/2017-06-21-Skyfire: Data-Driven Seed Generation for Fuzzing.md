@@ -50,7 +50,6 @@ Fuzzing是一种自动化的随机测试技术，其通过变异或者生成的�
 * 种子选取：采用覆盖率作为衡量标准进行样本去重选取
 * 种子变异：利用随机替换原则将同种类型的叶子节点进行变异
 
-<br />
 ![Skyfire-overview](../assets/Skyfire-overview.png)
 
 ## PCSG学习
