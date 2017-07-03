@@ -13,7 +13,7 @@ Junjie Wang, Bihuan Chen†, Lei Wei, and Yang Liu
 >* {wang1043, bhchen, l.wei, yangliu}@ntu.edu.sg 
 >* †Corresponding Author 
 
-## Abstract
+## 摘要
 对于输入格式是高度结构化文件的程序来说，其处理流程一般是：语法解析--语义检查--程序执行。程序深层次的漏洞一般隐藏在程序执行阶段，
 而对于自动化的模糊测试(Fuzzing)来说很难触发该类漏洞。<br>
 该论文提出了一种数据驱动的种子生成方法，叫做Skyfire。Skyfire通过从大量的已知样本中学习而生成覆盖良好的种子作为Fuzzing的输入对处
@@ -22,7 +22,7 @@ Junjie Wang, Bihuan Chen†, Lei Wei, and Yang Liu
 本文利用收集的样本和Skyfire生成的种子作为AFL的seed对开源的XSLT、XML等引擎进行测试，证明skyfire生成的种子文件分布（提高了20%行覆
 盖率和15的函数覆盖率）和发现漏洞能力。同时也对闭源的IE11的JavaScript引擎测试。其发现了19个内存破坏型缺陷和32个DOS缺陷。
 
-## Introduction
+## 背景介绍
 Fuzzing是一种自动化的随机测试技术，其通过变异或者生成的方法生成大量的测试样本，并利用生成的测试样本对目标程序进行测试和监控，以发现
 程序异常和缺陷。模糊测试的输入种子文件的质量是对测试效果的重要影响因素。<br />
 
@@ -37,7 +37,7 @@ Fuzzing是一种自动化的随机测试技术，其通过变异或者生成的�
 
 本文使用一种扩展的上下文敏感的文法（包含语义信息和概率信息）来生成测试用例，并将其作为Fuzzer的输入进行测试。Skyfire面向的目标程序是接收高度结构化输入的程序，本文主要针对XSL、XML、JavaScript等开源引擎进行测试，很大的提高了测试代码覆盖率，并发现了16个新的漏洞。
 
-## Approach Overview
+## 方法概述
 ### 生成目标
 * 生成正确的种子：能够通过程序的语法和语义检测
 * 生成多样性种子：能够多样化的覆盖语法和语义规则
@@ -75,7 +75,7 @@ attribute→version=“1.0”, c=[null, document, prolog, <?xml]
 
 	
 
-## Seed Generation
+## 种子生成
 ### 种子生成
 #### 1. 利用左推导方法生成种子输入
 迭代的进行下面操作，直至t中没有非终结符
