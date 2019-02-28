@@ -31,4 +31,5 @@ http://dblp.uni-trier.de/db/conf/sosp/))**
   5. 人工智能： **IJCAI (&#x1F4D7;[2018](https://www.ijcai.org/proceedings/2018/), &#x1F4D7;[2017](https://www.ijcai.org/proceedings/2017/ ), &#x1F539;[...](http://dblp.uni-trier.de/db/conf/ijcai/))、ICLR (&#x1F4D7;[2018](https://iclr.cc/Conferences/2018/Schedule?type=Poster), &#x1F4D7;[2017](https://iclr.cc/archive/www/doku.php%3Fid=iclr2017:schedule.html), &#x1F539;[...](https://iclr.cc/))、AAAI (&#x1F539;[...](
 http://dblp.uni-trier.de/db/conf/aaai/))、CVPR (&#x1F539;[...](
 http://dblp.uni-trier.de/db/conf/cvpr/))**
-  6. 黑客顶会：**BlackHat (USA, EUR, Asia)、Defcon**
+  6. 黑客顶会：**BlackHat (USA &#x1F53B;[2019](https://www.blackhat.com/us-19/)&#x1F4D7;[2018](https://www.blackhat.com/us-18/briefings/schedule/), EUR &#x1F4D7;[2018](https://www.blackhat.com/eu-18/briefings/schedule/index.html), Asia &#x1F4D7;[2018](https://www.blackhat.com/asia-18/briefings/schedule/index.html))、Defcon &#x1F4D7;[2018](https://defcon.org/html/links/dc-archives/dc-26-archive.html)、CanSecWest &#x1F4D7;[2018](https://cansecwest.com/slides.html)**
+  7. 其他：[CCF推荐会议/期刊列表](https://www.ccf.org.cn/xspj/gyml/)
