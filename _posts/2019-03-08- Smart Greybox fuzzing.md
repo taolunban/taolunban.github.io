@@ -51,6 +51,7 @@ power schedule决定了一个种子的energy，即一个种子能够fuzz的次�
 **U：** AFL能够分配的最大值
 ### File Format Specification
 针对许多文件结构做了大量的研究后，总结出构建虚拟结构的一些要点如下：
+
 **Chunk inheritance：** 先创建一个所有文件格式都适用的普通chunk。再构建具体的chunk，集成普通chunk，在chunk中添加不同的attribute。
 
 **Specification completeness：** 针对chunk结构变异操作，构建virtual Structure时，可以不需要规范化chunk中所有属性。其中的chunk data可作为blob存储。
@@ -81,8 +82,10 @@ SGF vs taint analysis-based greybox fuzzing:  与Vuzzer比较
 与AFL、AFLSmart比较：
 - SGF 发现33 0-day漏洞
 - AFL 和AFLSmart 仅发现16个
+
 与peach比较：
 - 在12个项目中比peach都表现的要好
+
 与Vuzzer比较：
 - 发现16个bug
 
