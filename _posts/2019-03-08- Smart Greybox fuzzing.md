@@ -30,6 +30,7 @@ CGF（coverage-based grebox fuzzing）是一种在自动化漏洞检测方面很
 为了生成interesting种子，将结构化变异和bit级别的变异一起使用是很有意义的。对于结构化变异，我们需要将文件和文件的虚拟结构同步更新，一个chunk的删除可能会影响到他的父节点的end_index。
 ### Deferred Parsing
 在实验中发现，虚拟结构的构建开销较大，解析输入只需要数秒。若是为每一个种子都构建虚拟结构，那么SGF的效率比传统的灰盒fuzz要差。为了克服这个问题，我们提出了一种deferred parsing的方法。
+
 ![AFLsmart-Deferred-parsing](../assets/AFLsmart-Deferred-parsing.png)
 
 **prob：**表示给种子s构建虚拟结构的概率
