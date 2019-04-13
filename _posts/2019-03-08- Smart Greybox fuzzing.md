@@ -19,10 +19,10 @@ CGF（coverage-based grebox fuzzing）是一种在自动化漏洞检测方面很
 **Smart deletion：** 删掉一个chunk，并将后面的索引修改。
 ![AFLsmart-Smart-deletion](../assets/AFLsmart-Smart-deletion.png)
 
-**Smart addition：**随机选择另一个seed s2, 并随机选择其中一个chunk C2放入到S1中，与C2的parent type相同的chunk内。
+**Smart addition：** 随机选择另一个seed s2, 并随机选择其中一个chunk C2放入到S1中，与C2的parent type相同的chunk内。
 ![AFLsmart-Smart-addition](../assets/AFLsmart-Smart-addition.png)
 
-**Smart splicing：**随机在S1和S2中选择两个type相同的chunk，将C2替代C1。
+**Smart splicing：** 随机在S1和S2中选择两个type相同的chunk，将C2替代C1。
 ![AFLsmart-Smart-splicing](../assets/AFLsmart-Smart-splicing.png)
 
 ### Stack mutations
@@ -32,23 +32,23 @@ CGF（coverage-based grebox fuzzing）是一种在自动化漏洞检测方面很
 
 ![AFLsmart-Deferred-parsing](../assets/AFLsmart-Deferred-parsing.png)
 
-**prob：**表示给种子s构建虚拟结构的概率
+**prob：** 表示给种子s构建虚拟结构的概率
 **t:** 上一次发现新路径的时间
-**ε：**阈值
+**ε：** 阈值
 当t>ε 时，构建新的虚拟结构。即，在小于ε时，采用bit-level变异；大于ε时，构建虚拟结构，使用结构化变异。
 ### Validity-based Power Schedule
 power schedule决定了一个种子的energy，即一个种子能够fuzz的次数。在AFL的power schedule的基础上，我们提出了一种爬山算法：
 ![AFLsmart-Power-schedule](../assets/AFLsmart-Power-schedule.png)
 
-**Degree of validity v(s) of a seed：**文件能够被解析的部分；
+**Degree of validity v(s) of a seed：** 文件能够被解析的部分；
 未能解析的部分，会用一个chunk表示。
 **p(s):** 传统灰盒fuzz（AFL）的power schedule
 **U：** AFL能够分配的最大值
 ### File Format Specification
 针对许多文件结构做了大量的研究后，总结出构建虚拟结构的一些要点如下：
-**Chunk inheritance：**先创建一个所有文件格式都适用的普通chunk。再构建具体的chunk，集成普通chunk，在chunk中添加不同的attribute。
-**Specification completeness：**针对chunk结构变异操作，构建virtual Structure时，可以不需要规范化chunk中所有属性。其中的chunk data可作为blob存储。
-**Relaxed constraints：**与解析结构无关的约束可以省略。即，chunk可以以任何顺序出现；chunk可以没有（包括强制的）；unknown chunk可以出现；一种类型的chunk可以出现多次。
+**Chunk inheritance：** 先创建一个所有文件格式都适用的普通chunk。再构建具体的chunk，集成普通chunk，在chunk中添加不同的attribute。
+**Specification completeness：** 针对chunk结构变异操作，构建virtual Structure时，可以不需要规范化chunk中所有属性。其中的chunk data可作为blob存储。
+**Relaxed constraints：** 与解析结构无关的约束可以省略。即，chunk可以以任何顺序出现；chunk可以没有（包括强制的）；unknown chunk可以出现；一种类型的chunk可以出现多次。
 ### AFLSmart implement
 ![AFLsmart-architecture](../assets/AFLsmart-architecture.png)
 
