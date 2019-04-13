@@ -73,6 +73,7 @@ SGF vs taint analysis-based greybox fuzzing:  与Vuzzer比较
 - 在12个项目中比peach都表现的要好
 与Vuzzer比较：
 - 发现16个bug
-![AFLsmart-Experimental result-1](../assets/AFLsmart-Experimental result-1.png)
 
-![AFLsmart-Experimental result-2](../assets/AFLsmart-Experimental result-2.png)
+![AFLsmart-Experimental-result-1](../assets/AFLsmart-Experimental-result-1.png)
+
+![AFLsmart-Experimental-result-2](../assets/AFLsmart-Experimental-result-2.png)
