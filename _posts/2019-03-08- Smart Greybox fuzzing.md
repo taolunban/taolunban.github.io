@@ -61,6 +61,7 @@ power schedule决定了一个种子的energy，即一个种子能够fuzz的次�
 ![AFLsmart-architecture](../assets/AFLsmart-architecture.png)
 
 在AFL基础上进行了扩展，添加并修改了4个模块：
+
 File cracker：解析输入文件，并分解成data chunk和data attibute。并计算输入文件的有效性，即文件有多少能够正确解析。
 
 Structure Collector：收集有效部分，并且分解成chunk和属性。
