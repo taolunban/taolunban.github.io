@@ -14,19 +14,24 @@ CGF（coverage-based grebox fuzzing）是一种在自动化漏洞检测方面很
 ### Virtual structure
 我们引入了一个轻量级的数据结构化表示-虚拟结构。每个输入文件表示成一个颗解析树。树上的节点代表chunk或者attribution。chunk是树的内部节点，attribution是树上的叶子节点。
 ![AFLsmart-virtual-structure](../assets/AFLsmart-virtual-structure.png)
+
 每个chunk包含start和end-index，表示在文件中的起始和结束字节序列位置。type表示chunk的类别，用于与其他chunk区分（eg：fmt chunk or data chunk）。每个chunk包含0个或者多个chunk作为孩子节点，同时也可以是0个或者多个attribution。attribute代表了文件中与结构无关的重要数据。
 ### Smart Mutation Operators
 **Smart deletion：** 删掉一个chunk，并将后面的索引修改。
 ![AFLsmart-Smart-deletion](../assets/AFLsmart-Smart-deletion.png)
+
 **Smart addition：**随机选择另一个seed s2, 并随机选择其中一个chunk C2放入到S1中，与C2的parent type相同的chunk内。
 ![AFLsmart-Smart-addition](../assets/AFLsmart-Smart-addition.png)
+
 **Smart splicing：**随机在S1和S2中选择两个type相同的chunk，将C2替代C1。
 ![AFLsmart-Smart-splicing](../assets/AFLsmart-Smart-splicing.png)
+
 ### Stack mutations
 为了生成interesting种子，将结构化变异和bit级别的变异一起使用是很有意义的。对于结构化变异，我们需要将文件和文件的虚拟结构同步更新，一个chunk的删除可能会影响到他的父节点的end_index。
 ### Deferred Parsing
 在实验中发现，虚拟结构的构建开销较大，解析输入只需要数秒。若是为每一个种子都构建虚拟结构，那么SGF的效率比传统的灰盒fuzz要差。为了克服这个问题，我们提出了一种deferred parsing的方法。
 ![AFLsmart-Deferred-parsing](../assets/AFLsmart-Deferred-parsing.png)
+
 **prob：**表示给种子s构建虚拟结构的概率
 **t:** 上一次发现新路径的时间
 **ε：**阈值
@@ -34,6 +39,7 @@ CGF（coverage-based grebox fuzzing）是一种在自动化漏洞检测方面很
 ### Validity-based Power Schedule
 power schedule决定了一个种子的energy，即一个种子能够fuzz的次数。在AFL的power schedule的基础上，我们提出了一种爬山算法：
 ![AFLsmart-Power-schedule](../assets/AFLsmart-Power-schedule.png)
+
 **Degree of validity v(s) of a seed：**文件能够被解析的部分；
 未能解析的部分，会用一个chunk表示。
 **p(s):** 传统灰盒fuzz（AFL）的power schedule
@@ -45,6 +51,7 @@ power schedule决定了一个种子的energy，即一个种子能够fuzz的次�
 **Relaxed constraints：**与解析结构无关的约束可以省略。即，chunk可以以任何顺序出现；chunk可以没有（包括强制的）；unknown chunk可以出现；一种类型的chunk可以出现多次。
 ### AFLSmart implement
 ![AFLsmart-architecture](../assets/AFLsmart-architecture.png)
+
 在AFL基础上进行了扩展，添加并修改了4个模块：
 File cracker：解析输入文件，并分解成data chunk和data attibute。并计算输入文件的有效性，即文件有多少能够正确解析。
 Structure Collector：收集有效部分，并且分解成chunk和属性。
@@ -57,6 +64,7 @@ SGF vs smart blackbox fuzzing: 与Peach比较
 SGF vs taint analysis-based greybox fuzzing:  与Vuzzer比较
 ### Subject Programs
 ![AFLsmart-Subject-program](../assets/AFLsmart-Subject-program.png)
+
 ### Experimental result
 与AFL、AFLSmart比较：
 - SGF 发现33 0-day漏洞
@@ -66,4 +74,5 @@ SGF vs taint analysis-based greybox fuzzing:  与Vuzzer比较
 与Vuzzer比较：
 - 发现16个bug
 ![AFLsmart-Experimental result-1](../assets/AFLsmart-Experimental result-1.png)
+
 ![AFLsmart-Experimental result-2](../assets/AFLsmart-Experimental result-2.png)
