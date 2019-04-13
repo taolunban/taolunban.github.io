@@ -1,8 +1,7 @@
-﻿
 ---
 layout: post
-permalink: 2019-03-08-Smart Greybox fuzzing
-title: Smart Greybox fuzzing
+permalink: 2019-03-08-Smart-Gerybox-fuzzing
+title: Smart-Gerybox-fuzzing
 ---
 
 ## Abstract
