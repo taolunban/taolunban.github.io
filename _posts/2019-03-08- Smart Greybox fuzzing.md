@@ -33,8 +33,11 @@ CGF（coverage-based grebox fuzzing）是一种在自动化漏洞检测方面很
 ![AFLsmart-Deferred-parsing](../assets/AFLsmart-Deferred-parsing.png)
 
 **prob：** 表示给种子s构建虚拟结构的概率
+
 **t:** 上一次发现新路径的时间
+
 **ε：** 阈值
+
 当t>ε 时，构建新的虚拟结构。即，在小于ε时，采用bit-level变异；大于ε时，构建虚拟结构，使用结构化变异。
 ### Validity-based Power Schedule
 power schedule决定了一个种子的energy，即一个种子能够fuzz的次数。在AFL的power schedule的基础上，我们提出了一种爬山算法：
@@ -42,25 +45,34 @@ power schedule决定了一个种子的energy，即一个种子能够fuzz的次�
 
 **Degree of validity v(s) of a seed：** 文件能够被解析的部分；
 未能解析的部分，会用一个chunk表示。
+
 **p(s):** 传统灰盒fuzz（AFL）的power schedule
+
 **U：** AFL能够分配的最大值
 ### File Format Specification
 针对许多文件结构做了大量的研究后，总结出构建虚拟结构的一些要点如下：
 **Chunk inheritance：** 先创建一个所有文件格式都适用的普通chunk。再构建具体的chunk，集成普通chunk，在chunk中添加不同的attribute。
+
 **Specification completeness：** 针对chunk结构变异操作，构建virtual Structure时，可以不需要规范化chunk中所有属性。其中的chunk data可作为blob存储。
+
 **Relaxed constraints：** 与解析结构无关的约束可以省略。即，chunk可以以任何顺序出现；chunk可以没有（包括强制的）；unknown chunk可以出现；一种类型的chunk可以出现多次。
 ### AFLSmart implement
 ![AFLsmart-architecture](../assets/AFLsmart-architecture.png)
 
 在AFL基础上进行了扩展，添加并修改了4个模块：
 File cracker：解析输入文件，并分解成data chunk和data attibute。并计算输入文件的有效性，即文件有多少能够正确解析。
+
 Structure Collector：收集有效部分，并且分解成chunk和属性。
+
 Energy Calculator：计算power schedule
+
 AFLSmart Fuzzer：在chunk level进行变异，并且支持bit-level变异。
 ## Experimental
 ### Research Question
 SGF vs traditional greybox fuzzing: 与AFL 和AFLFAST比较
+
 SGF vs smart blackbox fuzzing: 与Peach比较
+
 SGF vs taint analysis-based greybox fuzzing:  与Vuzzer比较
 ### Subject Programs
 ![AFLsmart-Subject-program](../assets/AFLsmart-Subject-program.png)
